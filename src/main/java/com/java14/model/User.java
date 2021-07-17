@@ -1,6 +1,12 @@
 package com.java14.model;
 
 import java.util.Objects;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class User {
     private String name;

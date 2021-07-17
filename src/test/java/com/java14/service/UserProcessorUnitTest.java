@@ -51,7 +51,6 @@ class UserProcessorUnitTest {
         user2.setTaxCategory("C");
 
 
-
         List<User> paramList = new ArrayList<>();
         paramList.add(user);
         paramList.add(user1);
@@ -59,20 +58,18 @@ class UserProcessorUnitTest {
 
         List<User> result = userProcessor.getUserWithCategory(paramList, "A");
         assertEquals(1, result.size());
-        assertEquals("A",result.get(0).getTaxCategory());
+        assertEquals("A", result.get(0).getTaxCategory());
         assertEquals(user1, result.get(0));
 
         result = userProcessor.getUserWithCategory(paramList, "B");
         assertEquals(1, result.size());
-        assertEquals("B",result.get(0).getTaxCategory());
+        assertEquals("B", result.get(0).getTaxCategory());
         assertEquals(user, result.get(0));
 
         result = userProcessor.getUserWithCategory(paramList, "C");
         assertEquals(1, result.size());
-        assertEquals("C",result.get(0).getTaxCategory());
+        assertEquals("C", result.get(0).getTaxCategory());
         assertEquals(user2, result.get(0));
-
-
 
 
     }
@@ -81,7 +78,7 @@ class UserProcessorUnitTest {
     void getGrossAmountForB() {
         when(authConnector.validate()).thenReturn("123");
         Float result = userProcessor.getGrossAmountForB(100.0F);
-        assertEquals(60, result,2);
+        assertEquals(60, result, 2);
 
         result = userProcessor.getGrossAmountForB(1000.0F);
         assertEquals(600, result, 2);
@@ -89,12 +86,12 @@ class UserProcessorUnitTest {
 
     @Test
     void getGrossAmountForA() {
-        Whitebox.setInternalState(userProcessor, "key","prod");
+        Whitebox.setInternalState(userProcessor, "key", "prod");
         Float result = userProcessor.getGrossAmountForA(100.0F);
-        assertEquals(75, result,2);
+        assertEquals(75, result, 2);
 
         result = userProcessor.getGrossAmountForA(100.0F);
-        assertNotEquals(40, result,2);
+        assertNotEquals(40, result, 2);
 
         verify(dbConnector, times(2)).connect();
 

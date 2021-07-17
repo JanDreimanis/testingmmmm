@@ -2,11 +2,12 @@ package com.java14.service;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.omg.CORBA.portable.ApplicationException;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AuthConnectorTest {
+
     private AuthConnector authConnector = new AuthConnector();
 
     @Test
@@ -25,7 +26,7 @@ class AuthConnectorTest {
             authConnector.something();
         });
         String actualMessage = exception.getMessage();
-        assertEquals("12345",actualMessage);
+        assertEquals("12345", actualMessage);
 
     }
 
