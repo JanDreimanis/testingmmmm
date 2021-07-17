@@ -1,6 +1,9 @@
 package com.java14.service;
 
 import com.java14.model.User;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.internal.util.reflection.Whitebox;
@@ -19,6 +22,15 @@ class UserProcessorUnitTest {
     private DbConnector dbConnector = mock(DbConnector.class);
     private UserProcessor userProcessor = new UserProcessor(dbConnector, authConnector);
 
+    @BeforeEach
+    void setUp() {
+        System.out.println("Start tests.");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("-----------------");
+    }
 
     @Test
     void getUserWithCategory() {
